@@ -81,13 +81,7 @@ jobs:
         run: dotnet restore
 
       - name: Ejecutar pruebas con cobertura
-        run: |
-          dotnet test \
-            --configuration Release \
-            --no-restore \
-            --collect:"XPlat Code Coverage" \
-            --results-directory ./coverage \
-            --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test --configuration Release --no-restore --collect:"XPlat Code Coverage" --results-directory ./coverage --logger "trx;LogFileName=test-results.trx"
 
       - name: Subir reporte de cobertura
         uses: actions/upload-artifact@v4
